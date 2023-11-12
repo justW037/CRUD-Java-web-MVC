@@ -66,6 +66,7 @@ public class UserDao {
         }
         return userList;
     }
+
     public void addUser(User user) {
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, email) VALUES (?, ?)")) {
@@ -76,4 +77,46 @@ public class UserDao {
             e.printStackTrace();
         }
     }
+
+    public User getUserById(int userId) {
+        User user = null;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?")) {
+            statement.setInt(1, userId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    user = new User();
+                    user.setId(resultSet.getInt("id"));
+                    user.setUsername(resultSet.getString("username"));
+                    user.setEmail(resultSet.getString("email"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    public void updateUser(User user) {
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE users SET username = ?, email = ? WHERE id = ?")) {
+            statement.setString(1, user.getUsername());
+            statement.setString(2, user.getEmail());
+            statement.setInt(3, user.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteUser(User user){
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE id = ?")) {
+            statement.setInt(1, user.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

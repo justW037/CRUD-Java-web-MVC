@@ -7,7 +7,9 @@
     <title>JSP - Hello World</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
+<body class="p-4">
+<a href="addUser.jsp" class="btn btn-success">Thêm</a>
+<h1>Danh sách</h1>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -24,8 +26,14 @@
             <td>${user.id}</td>
             <td>${user.username}</td>
             <td>${user.email}</td>
-            <td><button class="btn btn-primary">Sửa</button></td>
-            <td><button class="btn btn-danger">Xoá</button></td>
+            <td><form action="updatedUser">
+                    <input type="hidden" name="userId" value="${user.id}">
+                    <button type="submit" class="btn btn-primary">Sửa</button>
+                </form></td>
+            <td><form action="deleteUser" method="post">
+                <input type="hidden" name="userId" value="${user.id}">
+                <button type="submit" class="btn btn-danger">Xoá</button>
+                </form></td>
         </tr>
     </c:forEach>
     </tbody>
