@@ -12,8 +12,7 @@ import java.io.IOException;
 
 @WebServlet(name = "deleteUser", value = "/deleteUser" )
 public class DeleteUser extends HttpServlet {
-    public void init() {
-    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int userId = Integer.parseInt(request.getParameter("userId"));
 
@@ -25,6 +24,5 @@ public class DeleteUser extends HttpServlet {
         response.sendRedirect("getalluser");
 
     }
-    public void destroy() {
-    }
+
 }

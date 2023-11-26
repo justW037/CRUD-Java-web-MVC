@@ -10,7 +10,7 @@
 <body class="p-4">
 <a href="getalluser" class="btn btn-success">Danh sách</a>
 <h1>Thêm người dùng</h1>
-<form action="getalluser" method="post">
+<form action="add" method="post">
   <div class="form-group">
     <label for="username">Tên người dùng</label>
     <input type="text" name="username" class="form-control w-25 mb-3" id="username" placeholder="Nhập tên" required>

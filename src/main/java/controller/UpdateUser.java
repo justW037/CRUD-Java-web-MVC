@@ -13,8 +13,6 @@ import java.util.List;
 
 @WebServlet(name = "updatedUser", value = "/updatedUser" )
 public class UpdateUser extends HttpServlet {
-    public void init() {
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -40,6 +38,4 @@ public class UpdateUser extends HttpServlet {
         response.sendRedirect("getalluser");
     }
 
-    public void destroy() {
-    }
 }

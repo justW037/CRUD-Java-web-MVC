@@ -8,7 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body class="p-4">
-<a href="addUser.jsp" class="btn btn-success">Thêm</a>
+<div class="nav">
+    <a href="/add" class="btn btn-success">Thêm</a>
+    <form class="form-inline" action="search">
+        <input class="form-control mr-sm-2" name="searchKeyword" id="search" type="search" placeholder="Tìm kiếm">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+    </form>
+</div>
 <h1>Danh sách</h1>
 <table class="table table-striped">
     <thead>
@@ -42,3 +48,17 @@
 </body>
 
 </html>
+<style>
+    .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .form-inline {
+        display: flex;
+        flex-direction: row;
+    }
+    #search {
+        width: 300px;
+    }
+</style>
