@@ -9,7 +9,7 @@
 <body class="p-4">
     <a href="getalluser" class="btn btn-success">Quay lại</a>
     <h1 >Sửa người dùng</h1>
-    <form action="updatedUser" method="post">
+    <form action="/update" method="post">
         <input type="hidden" name="id" value="${user.id}">
         <div class="form-group">
             <label for="username">Tên người dùng</label>

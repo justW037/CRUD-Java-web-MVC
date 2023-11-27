@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>UserList</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body class="p-4">
 <div class="nav">
-    <a href="/add" class="btn btn-success">Thêm</a>
+    <a href="/new" class="btn btn-success">Thêm</a>
     <form class="form-inline" action="search">
         <input class="form-control mr-sm-2" name="searchKeyword" id="search" type="search" placeholder="Tìm kiếm">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
@@ -32,11 +32,11 @@
             <td>${user.id}</td>
             <td>${user.username}</td>
             <td>${user.email}</td>
-            <td><form action="updatedUser">
+            <td><form action="/edit">
                     <input type="hidden" name="userId" value="${user.id}">
                     <button type="submit" class="btn btn-primary">Sửa</button>
                 </form></td>
-            <td><form action="deleteUser" method="post">
+            <td><form action="/delete" method="post">
                 <input type="hidden" name="userId" value="${user.id}">
                 <button type="submit" class="btn btn-danger">Xoá</button>
                 </form></td>
